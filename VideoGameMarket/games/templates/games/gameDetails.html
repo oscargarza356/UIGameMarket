@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{% block content %}
+
+{{game.title}}
+<br />
+<img src="{{game.image.url}}" >
+<br />
+{{game.description}}
+<br />
+{{game.price}}
+<br />
+platform: {{game.platform}}
+<br />
+
+<input type = "submit" value ="Buy Game!"/>
+<input type = "submit" value ="Add to cart"/>
+
+{% endblock%}

@@ -266,7 +266,7 @@
             <div class="product-grid__img-wrapper">
 							<img src="{{game.image.url}}" alt="Img" class="product-grid__img" />
 						</div>
-            <span class="product-grid__title">{{game.title}}</span>
+            <span class="product-grid__title"><a href= "{% url 'games:gameDetails'  game.id%}">{{game.title}}</span>
 						<span class="product-grid__price">${{game.price}}</span>
 						<div class="product-grid__extend-wrapper">
 							<div class="product-grid__extend">
