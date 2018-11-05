@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{% block content %}
+
+{%if auth%}
+{{auth}}
+<br / >
+<br / >
+{% endif %}
+
+<h1> Welcome to DarkNET Video Game Market</h1 >
+<br / >
+<br / >
+
+{% for game in games.all %}
+
+  {{game.title}}
+  <br />
+  <img src = "{{game.image.url}}" />
+  <br / >
+  Price: {{game.price}}
+  <br / >
+  platform: {{game.platform}}
+  <br / >
+
+
+{% endfor %}
+
+
+
+{% endblock %}
