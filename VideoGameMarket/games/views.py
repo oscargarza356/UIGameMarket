@@ -12,11 +12,3 @@ def home(request):
 def gameDetails(request, game_id):
     game = Game.objects.get(pk = game_id)
     return render(request, 'games/gameDetails.html', {'game':game})
-
-
-
-
-#this function is just for testing/debugging please ignore it
-def test(request):
-    games = Game.objects.order_by('pub_date')
-    return render(request, 'games/home2.html', {'games':games})

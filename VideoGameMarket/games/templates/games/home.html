@@ -23,9 +23,7 @@
   }
   body * {
     box-sizing: inherit;
-
   }
-
   .wrapper {
     width: 40em;
     margin: 4em auto;
@@ -40,9 +38,6 @@
   .wrapper > :last-child {
     margin-bottom: 0;
   }
-
-
-
   .todo {
     background: #f9f9f9;
     padding: 1em;
@@ -59,13 +54,11 @@
   .todo ul li {
     list-style-position: inside;
   }
-
   footer {
     margin: 4em auto;
     text-align: center;
     font-size: .9em;
   }
-
   a {
     text-decoration: none;
     color: #2196F3;
@@ -73,7 +66,6 @@
   a:hover {
     text-decoration: underline;
   }
-
   .emoticon-face {
     background: #FFEB3B;
     border-radius: 100%;
@@ -92,7 +84,6 @@
   .emoticon-face--no-rotation {
     transform: rotate(0deg);
   }
-
   code {
     padding: .2em .3em;
     background: #f5f5f5;
@@ -100,26 +91,20 @@
     border-radius: 4px;
     font-size: .95em;
     font-family: 'Source Code Pro';
-
   }
-
   .tac {
     text-align: center;
   }
-
   .wrapper {
     width: 68em;
   }
-
   * {
     box-sizing: border-box;
   }
-
   body {
     color: #777;
     font-family: 'Open Sans', Arial, sans-serif;
   }
-
   .product-grid {
     width: 60em;
     margin: 2rem auto;
@@ -264,9 +249,11 @@
         <div class="product-grid__product-wrapper">
 					<div class="product-grid__product">
             <div class="product-grid__img-wrapper">
+              <a href= "{% url 'games:gameDetails'  game.id%}">
 							<img src="{{game.image.url}}" alt="Img" class="product-grid__img" />
+              </a>
 						</div>
-            <span class="product-grid__title"><a href= "{% url 'games:gameDetails'  game.id%}">{{game.title}}</span>
+            <span class="product-grid__title"><a href= "{% url 'games:gameDetails'  game.id%}">{{game.title}}</a></span>
 						<span class="product-grid__price">${{game.price}}</span>
 						<div class="product-grid__extend-wrapper">
 							<div class="product-grid__extend">

@@ -24,7 +24,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^$', views.home, name="home"),
-    url(r'test/', views.test, name="test"),
     url(r'^games/', include('games.urls')),
-
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
