@@ -15,3 +15,9 @@ Python3
 Pillow(Maybe)
 Django
 
+
+Instructions on admin:
+Once you are able to run the project use admin to add more games or do other admin stuff,
+for this run the command "python3 manage.py createsuperuser" to create a admin user, 
+once you have one go to "/admin" in the web-browser and login.
+
