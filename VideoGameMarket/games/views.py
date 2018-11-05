@@ -7,3 +7,7 @@ from django.shortcuts import render, redirect
 def home(request):
     games = Game.objects.order_by('pub_date')
     return render(request, 'games/home.html', {'games':games})
+
+def test(request):
+    games = Game.objects.order_by('pub_date')
+    return render(request, 'games/home2.html', {'games':games})
