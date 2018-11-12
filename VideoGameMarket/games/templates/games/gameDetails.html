@@ -1,19 +1,40 @@
 {%extends 'base.html'%}
 
 {% block content %}
-
-{{game.title}}
+<style>
+.content3 {
+    max-width: 70%;
+    margin: auto;
+}
+</style>
+<div class = "content3">
+<h2>{{game.title}}</h2>
 <br />
 <img src="{{game.image.url}}" >
 <br />
+<h3><strong>Game Description:</strong></h3>
 {{game.description}}
 <br />
-{{game.price}}
+<strong> Price:</strong>  ${{game.price}}
 <br />
-platform: {{game.platform}}
+<strong> Platform: </strong> {{game.platform}}
 <br />
 
 <input type = "submit" value ="Buy Game!"/>
 <input type = "submit" value ="Add to cart"/>
+<br />
+<br />
+<br />
+<h4> <strong>Comments:</strong></h4>
+  No one has commented this item.....
+  <br / >
+  <br / >
+  <br / >
+<strong>Enter your comment:</strong><br/>
+<textarea name="comment" form="usrform" style="width: 500px; height:100px;"></textarea><br />
+<input type="submit" value="Submit">
+
+</div>
+
 
 {% endblock%}
