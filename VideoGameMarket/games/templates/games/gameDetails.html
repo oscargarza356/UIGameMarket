@@ -16,4 +16,14 @@ platform: {{game.platform}}
 <input type = "submit" value ="Buy Game!"/>
 <input type = "submit" value ="Add to cart"/>
 
+<br />
+<form action="{% url 'gameDetails' %}" id="usrform">
+  User Name: <input type="text" name="usrname"><br />
+  <textarea name="comment" form="usrform">Enter a comment here</textarea><br />
+  <input type="submit" value="Submit">
+</form>
+
+
+
+
 {% endblock%}
