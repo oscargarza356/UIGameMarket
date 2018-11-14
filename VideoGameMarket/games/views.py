@@ -12,3 +12,6 @@ def home(request):
 def gameDetails(request, game_id):
     game = Game.objects.get(pk = game_id)
     return render(request, 'games/gameDetails.html', {'game':game})
+
+def buyGameView(request):
+    return render(request, 'games/buyCart.html')
