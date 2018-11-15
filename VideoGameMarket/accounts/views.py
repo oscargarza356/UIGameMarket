@@ -15,13 +15,14 @@ def signup(request):
                 return render(request,'accounts/signup.html', {'error': 'Username has already been taken'})
 
             except User.DoesNotExist:
-                user = User.objects.create_user(request.POST['username'], password = request.POST['password1'])
+                user = User.objects.create_user(request.POST['username'], password = request.POST['password1'], email = request.POST['email'])
                 login(request, user)
                 return redirect('home')
         else:
             return render(request,'accounts/signup.html', {'error': 'Passwords didn\'t match'})
     else:
         return render(request,'accounts/signup.html')
+
 
 def loginView(request):
     if request.user.is_authenticated:

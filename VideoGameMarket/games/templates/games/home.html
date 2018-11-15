@@ -160,7 +160,7 @@
 
 <body>
 <div class="wrapper">
-
+ <h2><strong>New Releases:</strong></h2>
 	<div class="content">
 		<!-- content here -->
 		<div class="product-grid product-grid--flexbox">
@@ -168,6 +168,7 @@
 				<!-- Product list start here -->
 
 				<!-- Single product -->
+
         {% for game in games.all %}
         <div class="product-grid__product-wrapper">
 					<div class="product-grid__product">
@@ -180,7 +181,7 @@
 						<span class="product-grid__price">${{game.price}}</span>
 						<div class="product-grid__extend-wrapper">
 							<div class="product-grid__extend">
-								<p class="product-grid__description">{{game.description}}</p>
+								<p class="product-grid__description">{{game.summary}}</p>
 								<span class="product-grid__btn product-grid__add-to-cart" ><i class="fa fa-cart-arrow-down"></i> Add to cart</span>
 								<span class="product-grid__btn product-grid__view">
                   <a href= "{% url 'games:gameDetails'  game.id%}"><i class="fa fa-eye"></i> View more</span>  </a>

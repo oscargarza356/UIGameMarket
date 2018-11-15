@@ -23,9 +23,13 @@ class Game(models.Model):
     )
 
     def __str__(self):
-        return self.title 
+        return self.title
+
+    def summary(self):
+        return self.description[:60]
 
 
-
-
-# Create your models here.
+class Order(models.Model):
+    pub_date = models.DateTimeField()
+    buyer = models.ForeignKey(User)
+    game =  model.ForeignKey(Game)
