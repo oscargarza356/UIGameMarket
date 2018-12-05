@@ -11,7 +11,7 @@
 <img src="http://i65.tinypic.com/25s4ho7.png" border="0" alt="Image and video hosting by TinyPic"><br / >
 <br / >
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
   .wrapper {
     width: 68em;
@@ -156,10 +156,57 @@
   .product-grid__view:hover {
     background: white;
   }
+
+.wrapper2{
+  position: absolute;
+  left: 65%;
+  transform: translate(-50%,-50%);
+}
+.container{
+  position: relative;
+  padding: 20px 50px;
+}
+
+.input{
+  min-width: 500px;
+  width: 50%;
+  border: 3px solid #111;
+  background: transparent;
+  padding: 15px 30px;
+  border-radius: 50px;
+  outline: none;
+  font-size: 18px;
+  color: #111;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #111;
+  font-family: Roboto;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #111;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #111;
+}
+
+
 </style>
 
 <body>
+  <div class="wrapper2">
+  <div class="container">
+  <input type="text" class="input" placeholder="Search Game  Title">
+  <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
+</div>
+
 <div class="wrapper">
+
  <h2><strong>New Releases:</strong></h2>
 	<div class="content">
 		<!-- content here -->
