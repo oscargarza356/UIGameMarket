@@ -27,9 +27,9 @@ class Game(models.Model):
 
     def summary(self):
         return self.description[:60]
-
-
-class Order(models.Model):
-    pub_date = models.DateTimeField()
-    buyer = models.ForeignKey(User)
-    game =  model.ForeignKey(Game)
+# 
+#
+# class Order(models.Model):
+#     pub_date = models.DateTimeField()
+#     buyer = models.ForeignKey(User)
+#     game =  model.ForeignKey(Game)
