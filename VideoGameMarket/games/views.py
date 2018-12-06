@@ -12,3 +12,12 @@ def home(request):
 def gameDetails(request, game_id):
     game = Game.objects.get(pk = game_id)
     return render(request, 'games/gameDetails.html', {'game':game})
+
+def search(request):
+    if request.method == "POST":
+        searchQuery = request.POST['search'] 
+        games = Game.objects.raw('Select * FROM games_game WHERE title LIKE "%'+searchQuery+'%"')
+    else:
+        games = Game.objects.raw('Select * FROM games_game WHERE title LIKE "%mario%"')
+
+    return render(request, 'games/search.html', {'games':games})

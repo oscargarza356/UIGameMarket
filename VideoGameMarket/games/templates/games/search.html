@@ -1,0 +1,113 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<style>
+.content3 {
+    max-width: 80%;
+    margin: auto;
+}
+.wrapper2{
+  position: absolute;
+  left: 65%;
+  transform: translate(-50%,-50%);
+}
+.container{
+  position: relative;
+  padding: 20px 50px;
+}
+
+.input{
+  min-width: 500px;
+  width: 50%;
+  border: 3px solid #111;
+  background: transparent;
+  padding: 15px 30px;
+  border-radius: 50px;
+  outline: none;
+  font-size: 18px;
+  color: #111;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #111;
+  font-family: Roboto;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #111;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #111;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+</style>
+
+<img src="http://i65.tinypic.com/25s4ho7.png" border="0" alt="Image and video hosting by TinyPic"><br / >
+<br / >
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- <form method="POST" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+
+    <label for="username">Username:</label>
+
+    <input type="text" id="username" name="username">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <div id="lower">
+        <label for="checkbox">forgot password</label>
+        <input type="submit" value="Login">
+    </div>
+</form> -->
+
+<body>
+  <div class="wrapper2">
+  <div class="container">
+    <form method="POST" action="{% url 'games:search' %}">
+      {% csrf_token %}
+      <input type="text" class="input" id="search" name = 'search' placeholder="Search Game  Title">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+<br />
+<br />
+
+
+{% for game in games %}
+<hr>
+
+  <div class = "content3">
+    <a href= "{% url 'games:gameDetails'  game.id%}"> <h2>{{game.title}}</h2>  </a>
+  <img src="{{game.image.url}}" >
+  <br />
+  <br />
+  <strong> Price:</strong>  ${{game.price}}
+  <br />
+  <strong> Platform: </strong> {{game.platform}}
+  <br />
+
+  <input type = "submit" value ="Buy Game!"/>
+  <input type = "submit" value ="Add to cart"/>
+  <br />
+
+  </div>
+{% endfor %}
+
+
+
+{% endblock%}

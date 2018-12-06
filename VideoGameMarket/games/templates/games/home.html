@@ -8,10 +8,6 @@
 <br / >
 {% endif %}
 
-<img src="http://i65.tinypic.com/25s4ho7.png" border="0" alt="Image and video hosting by TinyPic"><br / >
-<br / >
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
   .wrapper {
     width: 68em;
@@ -61,7 +57,11 @@
   }
   .product-grid__product:hover {
     box-shadow: 0px 0px 0px 1px #eee;
-    z-index: 50;
+    z-index
+<img src="http://i65.tinypic.com/25s4ho7.png" border="0" alt="Image and video hosting by TinyPic"><br / >
+<br / >
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">: 50;
   }
   .product-grid__product:hover .product-grid__extend {
     display: block;
@@ -142,7 +142,11 @@
   .product-grid__btn i.fa {
     margin-right: .3125rem;
   }
-  .product-grid__add-to-cart {
+  .product-g
+<img src="http://i65.tinypic.com/25s4ho7.png" border="0" alt="Image and video hosting by TinyPic"><br / >
+<br / >
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">rid__add-to-cart {
     color: #fff;
     background: #E91E63;
   }
@@ -197,11 +201,21 @@
 
 </style>
 
+
+<img src="http://i65.tinypic.com/25s4ho7.png" border="0" alt="Image and video hosting by TinyPic"><br / >
+<br / >
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <body>
   <div class="wrapper2">
   <div class="container">
-  <input type="text" class="input" placeholder="Search Game  Title">
-  <button type="submit"><i class="fa fa-search"></i></button>
+    <form method="POST" action="{% url 'games:search' %}">
+      {% csrf_token %}
+      <input type="text" class="input" id="search" name = 'search' placeholder="Search Game  Title">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
   </div>
 </div>
 
