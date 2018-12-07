@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from .models import Game
+from .models import Game, Order
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+import datetime
+
 
 # Create your views here.
 def home(request):
@@ -15,9 +18,24 @@ def gameDetails(request, game_id):
 
 def search(request):
     if request.method == "POST":
-        searchQuery = request.POST['search'] 
+        searchQuery = request.POST['search']
         games = Game.objects.raw('Select * FROM games_game WHERE title LIKE "%'+searchQuery+'%"')
     else:
         games = Game.objects.raw('Select * FROM games_game WHERE title LIKE "%mario%"')
 
     return render(request, 'games/search.html', {'games':games})
+
+def purchaseGame(request,game_id):
+    #need to check that user is logged in if request.user.is_authenticated():
+    if request.user.is_authenticated:
+        order = Order()
+        order.save()
+        order.pub_date = datetime.datetime.now()
+        order.buyer.set([request.user.id])
+        order.game.set([game_id])
+        return home(request)
+    else:
+        return home(request,{'error': 'You need to be logged in to purchase a game'})
+
+
+# def orderHistory(request):

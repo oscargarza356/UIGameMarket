@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.contrib.auth.models import User
 from django.db import models
 
 class Game(models.Model):
@@ -27,9 +27,9 @@ class Game(models.Model):
 
     def summary(self):
         return self.description[:60]
-# 
-#
-# class Order(models.Model):
-#     pub_date = models.DateTimeField()
-#     buyer = models.ForeignKey(User)
-#     game =  model.ForeignKey(Game)
+
+
+class Order(models.Model):
+    pub_date = models.DateTimeField()
+    buyer = models.ManyToManyField(User)
+    game =  models.ManyToManyField(Game)
