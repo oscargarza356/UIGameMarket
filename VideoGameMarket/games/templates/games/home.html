@@ -18,7 +18,6 @@
     border: 1px solid #f5f5f5;
   }
 
-
   }
   code {
     padding: .2em .3em;
@@ -204,7 +203,11 @@
 
 <img src="http://i65.tinypic.com/25s4ho7.png" border="0" alt="Image and video hosting by TinyPic"><br / >
 <br / >
-
+{%if error%}
+{{error}}
+<br / >
+<br / >
+{% endif %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -243,9 +246,10 @@
 						<div class="product-grid__extend-wrapper">
 							<div class="product-grid__extend">
 								<p class="product-grid__description">{{game.summary}}</p>
-								<span class="product-grid__btn product-grid__add-to-cart" ><i class="fa fa-cart-arrow-down"></i> Add to cart</span>
+
+								<span class="product-grid__btn product-grid__add-to-cart" ><a href= "{% url 'games:purchaseGame'  game.id%}"><i class="fa fa-cart-arrow-down"></i> Buy game<a/></span>
 								<span class="product-grid__btn product-grid__view">
-                  <a href= "{% url 'games:gameDetails'  game.id%}"><i class="fa fa-eye"></i> View more</span>  </a>
+                  <a href= "{% url 'games:gameDetails'  game.id%}"><i class="fa fa-eye"></i> View more</span>  <a />
 							</div>
             </div>
           </div>

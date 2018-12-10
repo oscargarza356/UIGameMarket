@@ -29,8 +29,8 @@ def purchaseGame(request,game_id):
     #need to check that user is logged in if request.user.is_authenticated():
     if request.user.is_authenticated:
         order = Order()
-        order.save()
         order.pub_date = datetime.datetime.now()
+        order.save()
         order.buyer.set([request.user.id])
         order.game.set([game_id])
         return home(request)
@@ -38,4 +38,8 @@ def purchaseGame(request,game_id):
         return home(request,{'error': 'You need to be logged in to purchase a game'})
 
 
-# def orderHistory(request):
+
+def orderHistory(request):
+    order = Order.objects.filter(buyer = request.user.id)
+    games = Order.objects.raw('Select game_id FROM games_order WHERE user_id = '+ str(request.user.id))
+    return render(request, 'games/search.html', {'games':games})
