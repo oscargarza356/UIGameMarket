@@ -29,7 +29,8 @@ def purchaseGame(request,game_id):
         game = Game.objects.get(pk =game_id)
         order = Order(pub_date = timezone.datetime.now(), buyer = request.user,game = game)
         order.save()
-        return home(request)
+        return orderHistory(request,True)
+
     else:
         games = Game.objects.order_by('pub_date')
         return render(request, 'games/home.html', {'games':games, 'error': 'You need to be logged in to purchase a game'})
@@ -38,8 +39,8 @@ def accountSettings(request):
     return render(request, 'games/account.html',{'name':request.user.username})
 
 
-def orderHistory(request):
-    orders = Order.objects.filter( buyer = request.user.id)
+def orderHistory(request, purchasedGame = None):
+    orders = Order.objects.order_by('pub_date').filter( buyer = request.user.id)
     games = []
     total = 0
     for order in orders:
@@ -47,7 +48,12 @@ def orderHistory(request):
         game.pub_date = order.pub_date
         total+= game.price
         games.append(game)
+    games = games[::-1]
     if total != 0:
-        return render(request, 'games/orderHistory.html', {'games':games, 'total':total})
+        if purchasedGame:
+            return render(request, 'games/orderHistory.html', {'games':games, 'total':total,'thanks':'Thank you for buying with us'})
+        else:
+            return render(request, 'games/orderHistory.html', {'games': games, 'total': total})
+
     else:
         return render(request, 'games/orderHistory.html', {'games':games})
