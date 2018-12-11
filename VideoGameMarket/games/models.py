@@ -31,5 +31,5 @@ class Game(models.Model):
 
 class Order(models.Model):
     pub_date = models.DateTimeField()
-    buyer = models.ManyToManyField(User)
-    game =  models.ManyToManyField(Game)
+    buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)

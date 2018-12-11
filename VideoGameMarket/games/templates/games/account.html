@@ -1,0 +1,81 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<style>
+.content3 {
+    max-width: 80%;
+    margin: auto;
+}
+.wrapper2{
+  position: absolute;
+  left: 65%;
+  transform: translate(-50%,-50%);
+}
+.container{
+  position: relative;
+  padding: 20px 50px;
+}
+
+.input{
+  min-width: 500px;
+  width: 50%;
+  border: 3px solid #111;
+  background: transparent;
+  padding: 15px 30px;
+  border-radius: 50px;
+  outline: none;
+  font-size: 18px;
+  color: #111;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #111;
+  font-family: Roboto;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #111;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #111;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+</style>
+
+<img src="http://i65.tinypic.com/25s4ho7.png" border="0" alt="Image and video hosting by TinyPic"><br / >
+<br / >
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h2> Hello {{name}} </h2>
+<div class="container" width="2000px">
+  <div class="form-group">
+  <label for="usr">Address:</label>
+  <input type="text" class="form-control">
+</div>
+<div class="form-group">
+  <label for="pwd">Zipcode:</label>
+  <input type="text" class="form-control">
+</div>
+<div class="form-group">
+  <label for="pwd">Credit Card Number:</label>
+  <input type="text" class="form-control">
+</div>
+<button type="button" class="btn btn-primary">Edit</button>
+
+</div>
+
+
+{% endblock%}
